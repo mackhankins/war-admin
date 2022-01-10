@@ -1,0 +1,18 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~@forevolve/bootstrap-dark/dist/css/bootstrap-dark';
+
+// Datatables BS4
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
+
+// Custom Overwrites
+@import 'resources/sass/custom';
+
+@import '~@fortawesome/fontawesome-free/css/all';

@@ -1,0 +1,29 @@
+.navbar-panda {
+    background-color: $panda;
+}
+
+.btn-panda {
+    @include button-variant($panda, darken($panda, 7.5%), darken($panda, 10%), lighten($panda,5%), lighten($panda, 10%), darken($panda,30%));
+    color: darken(white, 7.5%);
+
+    &:hover {
+        color: white;
+    }
+}
+
+.reqform {
+    color: #ff0000 !important;
+    font-weight: bold;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+    right: 2px !important;
+}
+
+ul.details {
+    list-style-type: none !important;
+
+    li:nth-child(odd) { background: $panda; }
+}
