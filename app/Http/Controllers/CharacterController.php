@@ -58,7 +58,7 @@ class CharacterController extends Controller
         $validated['user_id'] = $request->input('user_id');
 
         $character = Character::where('user_id',$validated['user_id'])->first();
-        $character->update([$validated]);
+        $character->update($validated);
 
         return \redirect('/');
     }
