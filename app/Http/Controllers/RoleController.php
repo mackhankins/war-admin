@@ -26,6 +26,10 @@ class RoleController extends Controller
         $roles = $request->input('roles');
         $user = User::find($request->input('user_id'));
 
+        if($user->id == 1 AND Auth::user()->id != 1) {
+            abort(404);
+        }
+
         $user->syncRoles($roles);
 
         return \redirect('/');
