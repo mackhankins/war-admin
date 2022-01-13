@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function findOrCreateUser($user)
     {
-        if ($authUser = User::where('discord_id', $user->id)->orWhere('email',$user->email)->first()) {
+        if ($authUser = User::where('discord_id', $user->id)->first()) {
             $authUser->update([
                 'discord_id' => $user->id,
                 'avatar' => $user->avatar,
