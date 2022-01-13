@@ -43,7 +43,8 @@ class CharacterController extends Controller
     }
 
     public function edit($user_id) {
-        if($user_id != Auth::user()->id) {
+        $user = Auth::user();
+        if( ($user_id != $user->id AND !$user->hasRole('administrator') ) ) {
             \abort('404');
         }
 
@@ -75,13 +76,21 @@ class CharacterController extends Controller
             'primary_weapon',
             'second_weapon',
             'user_id',
-        )->where('user_id',$user->id);
+        );
+
+        if( ! $user->hasRole(['organizer','administrator'] ) ) {
+            $characters->where('user_id',$user->id);
+        }
 
         return DataTables::eloquent($characters)
             ->addColumn(
                 'action',
-                function($character) {
-                    return '<a href="' . action('App\Http\Controllers\CharacterController@edit', $character->user_id) . '"><i class="fas fa-pencil-alt"></i></a>';
+                function($character) use ($user) {
+                    $actions = '<a href="' . action('App\Http\Controllers\CharacterController@edit', $character->user_id) . '" title="Edit"><i class="fas fa-pencil-alt"></i></a>&nbsp;';
+                    if($user->hasRole(['administrator'])) {
+                        $actions .= '<a href="' . action('App\Http\Controllers\RoleController@edit', $character->user_id) . '" title="Permissions"><i class="fas fa-dungeon"></i></a>';
+                    }
+                    return $actions;
                 }
             )
             ->make(true);

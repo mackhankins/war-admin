@@ -56,6 +56,20 @@ Route::prefix('character')->group(function () {
         'getplayer/{id?}',
         'App\Http\Controllers\CharacterController@getplayer',
     );
+
+    Route::prefix('role')->group(function () {
+
+        Route::get(
+          'edit/{id}',
+          'App\Http\Controllers\RoleController@edit',
+        );
+
+        Route::post(
+          'update',
+            'App\Http\Controllers\RoleController@update',
+        );
+
+    });
 });
 
 Auth::routes();

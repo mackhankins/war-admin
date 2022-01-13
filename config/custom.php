@@ -24,4 +24,6 @@ return [
         'Tank' => 'tank',
     ],
 
+    'admin_email' => env('ADMIN_EMAIL'),
+
 ];

@@ -145,7 +145,7 @@
                                     <option value="0" {{ old('share_information', $character->share_information) === 0 ? "selected" : "" }}>No</option>
                                 </select>
                             </div>
-                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"/>
+                            <input type="hidden" name="user_id" value="{{ $character->user->id }}"/>
                             {!! csrf_field() !!}
                             <div class="form-group">
                                 <input type="submit" class="btn btn-lg btn-primary navbar-panda" value="Submit">
