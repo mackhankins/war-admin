@@ -19,7 +19,6 @@
                                 </ul>
                             </div>
                         @endif
-                        @dump(old('share_information'))
                         <form method="POST" action="{{ action('App\Http\Controllers\CharacterController@update') }}">
                             <div class="form-group">
                                 <label for="character_name">What is your character name? <span class="reqform">*</span></label>
