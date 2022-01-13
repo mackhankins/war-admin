@@ -50,6 +50,7 @@ class User extends Authenticatable
     {
         if ($authUser = User::where('discord_id', $user->id)->orWhere('email',$user->email)->first()) {
             $authUser->update([
+                'discord_id' => $user->id,
                 'avatar' => $user->avatar,
                 'name' => $user->name,
                 'discriminator' => $user->user['discriminator'],
