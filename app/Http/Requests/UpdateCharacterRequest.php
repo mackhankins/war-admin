@@ -33,7 +33,7 @@ class UpdateCharacterRequest extends FormRequest
             'primary_weapon_level' => 'required|numeric',
             'second_weapon' => 'required',
             'second_weapon_level' => 'required|numeric',
-            'gear_score' => 'required|numeric',
+            'gear_score' => 'required|numeric|gt:0',
             'third_weapon' => 'sometimes|nullable',
             'fourth_weapon' => 'sometimes|nullable',
             'fifth_weapon' => 'sometimes|nullable',

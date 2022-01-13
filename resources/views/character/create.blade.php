@@ -52,7 +52,7 @@
                                 <label for="primary_role">What is your primary role? <span
                                         class="reqform">*</span></label>
                                 <select name="primary_role" value="{{ old('primary_role') }}" class="custom-select">
-                                    <option {{ old('primary_role') === "" ? "selected" : "" }}>Choose</option>
+                                    <option value="" {{ old('primary_role') === "" ? "selected" : "" }}>Choose</option>
                                     @foreach(config('custom.roles') as $name => $key)
                                         <option value="{{ $key }}" {{ old('primary_role') === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -61,7 +61,7 @@
                             <div class="form-group">
                                 <label for="primary_weapon">What is your primary weapon? <span class="reqform">*</span></label>
                                 <select name="primary_weapon" class="custom-select">
-                                    <option {{ old('primary_weapon') === "" ? "selected" : "" }}>Choose</option>
+                                    <option value="" {{ old('primary_weapon') === "" ? "selected" : "" }}>Choose</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('primary_weapon') === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -79,7 +79,7 @@
                                 <label for="second_weapon">What is your secondary weapon? <span
                                         class="reqform">*</span></label>
                                 <select name="second_weapon" class="custom-select">
-                                    <option {{ old('second_weapon') === "" ? "selected" : "" }} value="">Choose</option>
+                                    <option value="" {{ old('second_weapon') === "" ? "selected" : "" }} value="">Choose</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('second_weapon') === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -106,7 +106,7 @@
                                 <label for="third_weapon">What is your third weapon?</label>
                                 <select name="third_weapon" aria-describedby="thirdWeaponHelp"
                                         class="custom-select">
-                                    <option {{ old('third_weapon') === "" ? "selected" : "" }} value="">NA</option>
+                                    <option value="" {{ old('third_weapon') === "" ? "selected" : "" }} value="">NA</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('third_weapon') === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -117,7 +117,7 @@
                             <div class="form-group">
                                 <label for="fourth_weapon">What is your fourth weapon?</label>
                                 <select name="fourth_weapon" aria-describedby="fourthWeaponHelp" class="custom-select">
-                                    <option {{ old('fourth_weapon') === "" ? "selected" : "" }} value="">NA</option>
+                                    <option value="" {{ old('fourth_weapon') === "" ? "selected" : "" }} value="">NA</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('fourth_weapon') === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -128,7 +128,7 @@
                             <div class="form-group">
                                 <label for="fifth_weapon">What is your fifth weapon?</label>
                                 <select name="fifth_weapon" aria-describedby="fifthWeaponHelp" class="custom-select">
-                                    <option {{ old('fifth_weapon') === "" ? "selected" : "" }} value="">NA</option>
+                                    <option value="" {{ old('fifth_weapon') === "" ? "selected" : "" }} value="">NA</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('fifth_weapon') === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach

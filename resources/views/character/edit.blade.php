@@ -19,6 +19,7 @@
                                 </ul>
                             </div>
                         @endif
+                        @dump(old('share_information'))
                         <form method="POST" action="{{ action('App\Http\Controllers\CharacterController@update') }}">
                             <div class="form-group">
                                 <label for="character_name">What is your character name? <span class="reqform">*</span></label>
@@ -52,7 +53,7 @@
                                 <label for="primary_role">What is your primary role? <span
                                         class="reqform">*</span></label>
                                 <select name="primary_role" class="custom-select">
-                                    <option {{ old('primary_role', $character->primary_role) === "" ? "selected" : "" }}>Choose</option>
+                                    <option value="" {{ old('primary_role', $character->primary_role) === "" ? "selected" : "" }}>Choose</option>
                                     @foreach(config('custom.roles') as $name => $key)
                                         <option value="{{ $key }}" {{ old('primary_role', $character->primary_role) === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -61,7 +62,7 @@
                             <div class="form-group">
                                 <label for="primary_weapon">What is your primary weapon? <span class="reqform">*</span></label>
                                 <select name="primary_weapon" class="custom-select">
-                                    <option {{ old('primary_weapon', $character->primary_weapon) === "" ? "selected" : "" }}>Choose</option>
+                                    <option value="" {{ old('primary_weapon', $character->primary_weapon) === "" ? "selected" : "" }}>Choose</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('primary_weapon', $character->primary_weapon) === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -79,7 +80,7 @@
                                 <label for="second_weapon">What is your secondary weapon? <span
                                         class="reqform">*</span></label>
                                 <select name="second_weapon" class="custom-select">
-                                    <option {{ old('second_weapon', $character->second_weapon) === "" ? "selected" : "" }} value="">Choose</option>
+                                    <option value="" {{ old('second_weapon', $character->second_weapon) === "" ? "selected" : "" }} value="">Choose</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('second_weapon', $character->second_weapon) === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -106,7 +107,7 @@
                                 <label for="third_weapon">What is your third weapon?</label>
                                 <select name="third_weapon" aria-describedby="thirdWeaponHelp"
                                         class="custom-select">
-                                    <option {{ old('third_weapon', $character->third_weapon) === "" ? "selected" : "" }} value="">NA</option>
+                                    <option value="" {{ old('third_weapon', $character->third_weapon) === "" ? "selected" : "" }} value="">NA</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('third_weapon', $character->third_weapon) === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -117,7 +118,7 @@
                             <div class="form-group">
                                 <label for="fourth_weapon">What is your fourth weapon?</label>
                                 <select name="fourth_weapon" aria-describedby="fourthWeaponHelp" class="custom-select">
-                                    <option {{ old('fourth_weapon', $character->fourth_weapon) === "" ? "selected" : "" }} value="">NA</option>
+                                    <option value="" {{ old('fourth_weapon', $character->fourth_weapon) === "" ? "selected" : "" }} value="">NA</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('fourth_weapon', $character->fourth_weapon) === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -128,7 +129,7 @@
                             <div class="form-group">
                                 <label for="fifth_weapon">What is your fifth weapon?</label>
                                 <select name="fifth_weapon" aria-describedby="fifthWeaponHelp" class="custom-select">
-                                    <option {{ old('fifth_weapon', $character->fifth_weapon) === "" ? "selected" : "" }} value="">NA</option>
+                                    <option value="" {{ old('fifth_weapon', $character->fifth_weapon) === "" ? "selected" : "" }} value="">NA</option>
                                     @foreach(config('custom.weapons') as $name => $key)
                                         <option value="{{ $key }}" {{ old('fifth_weapon', $character->fifth_weapon) === $key ? "selected" : "" }}>{{ $name }}</option>
                                     @endforeach
@@ -141,8 +142,8 @@
                                     <span class="reqform">*</span></label>
                                 <select name="share_information" class="custom-select">
                                     <option {{ old('share_information', $character->share_information) === "" ? "selected" : "" }}>Choose</option>
-                                    <option value="1" {{ old('share_information', $character->share_information) === 1 ? "selected" : "" }}>Yes</option>
-                                    <option value="0" {{ old('share_information', $character->share_information) === 0 ? "selected" : "" }}>No</option>
+                                    <option value="1" {{ intval(old('share_information', $character->share_information)) === 1 ? "selected" : "" }}>Yes</option>
+                                    <option value="0" {{ intval(old('share_information', $character->share_information)) === 0 ? "selected" : "" }}>No</option>
                                 </select>
                             </div>
                             <input type="hidden" name="user_id" value="{{ $character->user->id }}"/>
