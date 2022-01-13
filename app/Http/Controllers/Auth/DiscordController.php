@@ -22,7 +22,9 @@ class DiscordController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('discord')->redirect();
+        return Socialite::driver( 'discord' )
+            ->setScopes(['identify'])
+            ->redirect();
     }
 
     /**
