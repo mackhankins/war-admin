@@ -112,7 +112,7 @@
                                     @endforeach
                                 </select>
                                 <small id="thirdWeaponHelp" class="form-text text-muted">Select N/A if you do not use a
-                                    3rd weapon</small>
+                                    3rd weapon.</small>
                             </div>
                             <div class="form-group">
                                 <label for="fourth_weapon">What is your fourth weapon?</label>
@@ -123,7 +123,7 @@
                                     @endforeach
                                 </select>
                                 <small id="fourthWeaponHelp" class="form-text text-muted">Select N/A if you do not use a
-                                    4th weapon</small>
+                                    4th weapon.</small>
                             </div>
                             <div class="form-group">
                                 <label for="fifth_weapon">What is your fifth weapon?</label>
@@ -134,7 +134,7 @@
                                     @endforeach
                                 </select>
                                 <small id="fifthWeaponHelp" class="form-text text-muted">Select N/A if you do not use a
-                                    5th weapon</small>
+                                    5th weapon.</small>
                             </div>
                             <div class="form-group">
                                 <label for="share_information">Can we share your information with Pandamonium allies?
