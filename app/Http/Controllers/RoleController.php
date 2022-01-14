@@ -23,10 +23,18 @@ class RoleController extends Controller
     }
 
     public function update(Request $request) {
+
+        $authUser = Auth::user();
+
+        if( ! $authUser->hasRole('administrator') ) {
+            abort(404);
+        }
+
         $roles = $request->input('roles');
+
         $user = User::find($request->input('user_id'));
 
-        if($user->id == 1 AND Auth::user()->id != 1) {
+        if($user->id == 1 AND $authUser->id != 1) {
             abort(404);
         }
 
